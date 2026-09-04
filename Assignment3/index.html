@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Student Management System</h1>
+    <h2>Result Analysis</h2>
+
+    <div class="form">
+
+        <input type="text" id="name" placeholder="Student Name">
+
+        <input type="text" id="roll" placeholder="Roll Number">
+
+        <input type="number" id="m1" placeholder="Subject 1 Marks">
+
+        <input type="number" id="m2" placeholder="Subject 2 Marks">
+
+        <input type="number" id="m3" placeholder="Subject 3 Marks">
+
+        <input type="number" id="m4" placeholder="Subject 4 Marks">
+
+        <input type="number" id="m5" placeholder="Subject 5 Marks">
+
+        <button onclick="addStudent()">Add Student</button>
+
+    </div>
+
+
+    <h3 id="topper"></h3>
+
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Total</th>
+                <th>Percentage</th>
+                <th>Grade</th>
+                <th>Result</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody">
+        </tbody>
+
+    </table>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
