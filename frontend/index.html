@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ExamSeat Pro | Smart Seating Management</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">ES</div>
+
+                <div>
+                    <h2>ExamSeat</h2>
+                    <span>Smart Management</span>
+                </div>
+            </div>
+
+            <nav class="navigation">
+
+                <button class="nav-item active" onclick="showSection('dashboard', this)">
+                    <span>⌂</span>
+                    Dashboard
+                </button>
+
+                <button class="nav-item" onclick="showSection('students', this)">
+                    <span>♙</span>
+                    Students
+                </button>
+
+                <button class="nav-item" onclick="showSection('rooms', this)">
+                    <span>▦</span>
+                    Exam Rooms
+                </button>
+
+                <button class="nav-item" onclick="showSection('seating', this)">
+                    <span>▤</span>
+                    Seating Plan
+                </button>
+
+                <button class="nav-item" onclick="showSection('search', this)">
+                    <span>⌕</span>
+                    Find Seat
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="system-status">
+                    <span class="status-dot"></span>
+
+                    <div>
+                        <strong>System Online</strong>
+                        <small>MongoDB Connected</small>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+                    <p class="eyebrow">EXAMINATION MANAGEMENT</p>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+
+                <div class="header-actions">
+
+                    <div class="date-box">
+                        <span>Today</span>
+                        <strong id="currentDate">--</strong>
+                    </div>
+
+                    <div class="profile">
+                        <div class="avatar">AD</div>
+
+                        <div>
+                            <strong>Administrator</strong>
+                            <small>Exam Cell</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Dashboard -->
+            <section id="dashboard" class="page-section active">
+
+                <div class="welcome-card">
+
+                    <div>
+                        <span class="welcome-tag">SMART EXAM SYSTEM</span>
+
+                        <h2>Plan smarter.<br>Seat students better.</h2>
+
+                        <p>
+                            Automatically generate conflict-free examination
+                            seating arrangements with intelligent subject allocation.
+                        </p>
+
+                        <button class="primary-btn" onclick="generateSeating()">
+                            Generate Seating Plan
+                            <span>→</span>
+                        </button>
+                    </div>
+
+                    <div class="welcome-visual">
+                        <div class="visual-circle">
+                            <div class="seat-symbol">S</div>
+                        </div>
+
+                        <div class="floating-card card-one">
+                            <strong>✓</strong>
+                            <span>Conflict Free</span>
+                        </div>
+
+                        <div class="floating-card card-two">
+                            <strong>AI</strong>
+                            <span>Smart Allocation</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Stats -->
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-icon students-icon">♙</div>
+
+                        <div>
+                            <span>Total Students</span>
+                            <strong id="studentCount">0</strong>
+                            <small>Registered for exam</small>
+                        </div>
+                    </div>
+
+
+                    <div class="stat-card">
+                        <div class="stat-icon rooms-icon">▦</div>
+
+                        <div>
+                            <span>Exam Rooms</span>
+                            <strong id="roomCount">0</strong>
+                            <small>Available rooms</small>
+                        </div>
+                    </div>
+
+
+                    <div class="stat-card">
+                        <div class="stat-icon allocated-icon">✓</div>
+
+                        <div>
+                            <span>Allocated Seats</span>
+                            <strong id="allocatedCount">0</strong>
+                            <small>Successfully assigned</small>
+                        </div>
+                    </div>
+
+
+                    <div class="stat-card">
+                        <div class="stat-icon warning-icon">!</div>
+
+                        <div>
+                            <span>Unallocated</span>
+                            <strong id="unallocatedCount">0</strong>
+                            <small>Need attention</small>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Actions -->
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">QUICK ACCESS</span>
+                        <h2>Manage Examination</h2>
+                    </div>
+                </div>
+
+
+                <div class="quick-grid">
+
+                    <button class="quick-card" onclick="showSection('students')">
+                        <span class="quick-icon">♙</span>
+                        <strong>Manage Students</strong>
+                        <small>Add and manage exam students</small>
+                        <span class="arrow">→</span>
+                    </button>
+
+
+                    <button class="quick-card" onclick="showSection('rooms')">
+                        <span class="quick-icon">▦</span>
+                        <strong>Manage Rooms</strong>
+                        <small>Configure examination rooms</small>
+                        <span class="arrow">→</span>
+                    </button>
+
+
+                    <button class="quick-card" onclick="showSection('seating')">
+                        <span class="quick-icon">▤</span>
+                        <strong>View Seating Plan</strong>
+                        <small>Visual room-wise arrangement</small>
+                        <span class="arrow">→</span>
+                    </button>
+
+
+                    <button class="quick-card" onclick="showSection('search')">
+                        <span class="quick-icon">⌕</span>
+                        <strong>Find Student Seat</strong>
+                        <small>Quickly locate assigned seat</small>
+                        <span class="arrow">→</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Students -->
+            <section id="students" class="page-section">
+
+                <div class="section-heading">
+                    <div>
+                        <span class="section-label">STUDENT MANAGEMENT</span>
+                        <h2>Exam Students</h2>
+                    </div>
+
+                    <button class="primary-btn small" onclick="openStudentModal()">
+                        + Add Student
+                    </button>
+                </div>
+
+                <div class="table-card">
+
+                    <div class="table-header">
+                        <div>
+                            <strong>Registered Students</strong>
+                            <span>Students currently registered for examination</span>
+                        </div>
+
+                        <input
+                            type="text"
+                            id="studentSearch"
+                            placeholder="Search student..."
+                            onkeyup="filterStudents()"
+                        >
+                    </div>
+
+                    <div class="table-wrapper">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Roll Number</th>
+                                    <th>Department</th>
+                                    <th>Subject</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="studentTableBody">
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Rooms -->
+            <section id="rooms" class="page-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-label">ROOM MANAGEMENT</span>
+                        <h2>Examination Rooms</h2>
+                    </div>
+
+                    <button class="primary-btn small" onclick="openRoomModal()">
+                        + Add Room
+                    </button>
+
+                </div>
+
+
+                <div id="roomGrid" class="room-grid">
+                </div>
+
+            </section>
+
+
+            <!-- Seating -->
+            <section id="seating" class="page-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="section-label">INTELLIGENT ALLOCATION</span>
+                        <h2>Seating Plan</h2>
+                    </div>
+
+                    <button class="primary-btn" onclick="generateSeating()">
+                        Generate Plan
+                    </button>
+
+                </div>
+
+
+                <div id="seatingContainer">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">▤</div>
+
+                        <h3>No Seating Plan Generated</h3>
+
+                        <p>
+                            Generate an intelligent seating arrangement
+                            to see room-wise seat allocation.
+                        </p>
+
+                        <button class="primary-btn" onclick="generateSeating()">
+                            Generate Seating Plan
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Search -->
+            <section id="search" class="page-section">
+
+                <div class="search-hero">
+
+                    <span class="section-label">STUDENT SEAT LOCATOR</span>
+
+                    <h2>Find Your Exam Seat</h2>
+
+                    <p>
+                        Enter a student's roll number to instantly locate
+                        their examination room and seat.
+                    </p>
+
+
+                    <div class="seat-search">
+
+                        <input
+                            id="rollSearch"
+                            type="text"
+                            placeholder="Enter Roll Number"
+                        >
+
+                        <button class="primary-btn" onclick="findSeat()">
+                            Find Seat →
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div id="seatResult"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- Student Modal -->
+    <div id="studentModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <div>
+                    <span class="section-label">NEW RECORD</span>
+                    <h2>Add Student</h2>
+                </div>
+
+                <button onclick="closeModal('studentModal')">×</button>
+            </div>
+
+
+            <form id="studentForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Student Name</label>
+                        <input id="studentName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Roll Number</label>
+                        <input id="rollNumber" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Department</label>
+                        <input id="department" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input id="subject" required>
+                    </div>
+
+                </div>
+
+                <button class="primary-btn full" type="submit">
+                    Add Student
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Room Modal -->
+    <div id="roomModal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="section-label">NEW ROOM</span>
+                    <h2>Add Examination Room</h2>
+                </div>
+
+                <button onclick="closeModal('roomModal')">×</button>
+
+            </div>
+
+
+            <form id="roomForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Room Number</label>
+                        <input id="roomNumber" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Building</label>
+                        <input id="building" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rows</label>
+                        <input id="rows" type="number" min="1" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Columns</label>
+                        <input id="columns" type="number" min="1" required>
+                    </div>
+
+                </div>
+
+                <button class="primary-btn full" type="submit">
+                    Add Room
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
