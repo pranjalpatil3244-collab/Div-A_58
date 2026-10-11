@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Registration</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Registration Form -->
+
+    <div class="container">
+
+        <h1>Employee Registration Form</h1>
+
+        <form id="employeeForm">
+
+            <!-- First Name and Last Name -->
+
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label for="firstName">First Name</label>
+
+                    <input
+                        type="text"
+                        id="firstName"
+                        placeholder="Enter first name"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="lastName">Last Name</label>
+
+                    <input
+                        type="text"
+                        id="lastName"
+                        placeholder="Enter last name"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Email -->
+
+            <div class="form-group">
+
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="example@gmail.com"
+                    required>
+
+            </div>
+
+
+            <!-- Phone and DOB -->
+
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label for="phone">Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter phone number"
+                        required>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="dob">Date of Birth</label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gender -->
+
+            <div class="form-group">
+
+                <label for="gender">Gender</label>
+
+                <select id="gender" required>
+
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Department and Position -->
+
+            <div class="row">
+
+                <div class="form-group">
+
+                    <label for="department">Department</label>
+
+                    <select id="department" required>
+
+                        <option value="">Select Department</option>
+                        <option value="IT">IT</option>
+                        <option value="HR">HR</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="position">Position</label>
+
+                    <input
+                        type="text"
+                        id="position"
+                        placeholder="Enter job position"
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- Salary -->
+
+            <div class="form-group">
+
+                <label for="salary">Salary</label>
+
+                <input
+                    type="number"
+                    id="salary"
+                    placeholder="Enter salary"
+                    min="0"
+                    required>
+
+            </div>
+
+
+            <!-- Joining Date -->
+
+            <div class="form-group">
+
+                <label for="joiningDate">Joining Date</label>
+
+                <input
+                    type="date"
+                    id="joiningDate"
+                    required>
+
+            </div>
+
+
+            <!-- Address -->
+
+            <div class="form-group">
+
+                <label for="address">Address</label>
+
+                <textarea
+                    id="address"
+                    placeholder="Enter employee address"
+                    required></textarea>
+
+            </div>
+
+
+            <!-- Buttons -->
+
+            <div class="buttons">
+
+                <button
+                    type="submit"
+                    class="submit-btn">
+
+                    Add Employee
+
+                </button>
+
+                <button
+                    type="reset"
+                    class="reset-btn">
+
+                    Reset
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- Employee List -->
+
+    <div class="employee-container">
+
+        <h2>Employee List</h2>
+
+        <div class="table-wrapper">
+
+            <table id="employeeTable">
+
+                <thead>
+
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Department</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="employeeTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p id="noEmployee">
+            No employees added yet.
+        </p>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

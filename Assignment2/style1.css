@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+}
+
+span {
+    color: #0d6efd;
+}
+
+/* Navbar */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #0d6efd;
+}
+
+/* Home */
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf3ff;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* About */
+#about {
+    max-width: 800px;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+.icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+/* Projects */
+.project-section {
+    background: #eef2f7;
+}
+
+/* Footer */
+footer span {
+    color: #0dcaf0;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        margin-left: 8px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+}
